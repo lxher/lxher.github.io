@@ -16,22 +16,32 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Hello World">
+    <meta name="description" content="MySQL8.0降级到MySQL5.7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2023/04/21/hello-world/index.html">
+<meta property="og:title" content="MySQL8.0降级到MySQL5.7">
+<meta property="og:url" content="http://example.com/2023/01/21/2023-01-01/index.html">
 <meta property="og:site_name" content="lxh blog">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="MySQL8.0降级到MySQL5.7">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-20T16:14:19.000Z">
-<meta property="article:modified_time" content="2023-04-22T06:21:57.623Z">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/1.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/2.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/3.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/4.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/5.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/6.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/7.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/8.png">
+<meta property="og:image" content="http://image.lxher.com/blog/2023-01-01/9.png">
+<meta property="article:published_time" content="2023-01-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-29T14:47:22.269Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://image.lxher.com/blog/2023-01-01/1.png">
   
   
   
-  <title>Hello World - lxh blog</title>
+  <title>MySQL8.0降级到MySQL5.7 - lxh blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +207,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="MySQL8.0降级到MySQL5.7"></span>
           
         </div>
 
@@ -208,8 +218,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-21 00:14" pubdate>
-          2023年4月21日 凌晨
+        <time datetime="2023-01-21 00:00" pubdate>
+          2023年1月21日 凌晨
         </time>
       </span>
     
@@ -220,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          1.4k 字
         
       </span>
     
@@ -231,7 +241,7 @@
         
         
         
-          4 分钟
+          12 分钟
         
       </span>
     
@@ -269,24 +279,50 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">MySQL8.0降级到MySQL5.7</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <h1 id="MySQL8-0降级到MySQL5-7"><a href="#MySQL8-0降级到MySQL5-7" class="headerlink" title="MySQL8.0降级到MySQL5.7"></a>MySQL8.0降级到MySQL5.7</h1><p>因为项目需要，要把MySQL8.0降级到MySQL5.7，在这里记录一下</p>
+<h2 id="停止MySQL8-0"><a href="#停止MySQL8-0" class="headerlink" title="停止MySQL8.0"></a>停止MySQL8.0</h2><p>打开任务管理器，找到<code>MySQL80</code>服务，右键停止服务</p>
+<img src="http://image.lxher.com/blog/2023-01-01/1.png" srcset="/img/loading.gif" lazyload width="500">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<p>打开<code>开始</code>菜单，以管理员身份运行<code>cmd</code>，输入命令<code>sc delete MySQL80</code>，删除<code>MySQL80</code>服务</p>
+<img src="http://image.lxher.com/blog/2023-01-01/2.png" srcset="/img/loading.gif" lazyload width="300">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<h2 id="下载MySQL5-7"><a href="#下载MySQL5-7" class="headerlink" title="下载MySQL5.7"></a>下载MySQL5.7</h2><p>下载地址为<code>https://downloads.mysql.com/archives/community/</code>，下载版本为<code>5.7.39</code>，选择第二个压缩包下载</p>
+<img src="http://image.lxher.com/blog/2023-01-01/3.png" srcset="/img/loading.gif" lazyload width="800">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<p>将<code>mysql-5.7.39-winx64.zip</code>压缩包解压到<code>C:\Program Files\MySQL</code>目录下，这个目录通常是<code>MySQL8.0</code>的安装目录</p>
+<img src="http://image.lxher.com/blog/2023-01-01/4.png" srcset="/img/loading.gif" lazyload width="500">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="配置MySQL5-7"><a href="#配置MySQL5-7" class="headerlink" title="配置MySQL5.7"></a>配置MySQL5.7</h2><p>在<code>mysql-5.7.39-winx64</code>目录下创建<code>data</code>文件夹和<code>my.ini</code>文件</p>
+<img src="http://image.lxher.com/blog/2023-01-01/5.png" srcset="/img/loading.gif" lazyload width="500">
+
+<p>修改<code>my.ini</code>文件为以下内容，注意<code>basedir</code>和<code>datadir</code>为自己下载的<code>MySQL5.7</code>的安装目录和数据目录</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[mysql]<br><span class="hljs-section"># mysql客户端默认字符集</span><br>default-character-set=utf8 <br>[mysqld]<br><span class="hljs-section"># 端口</span><br>port=3306 <br><span class="hljs-section"># mysql的安装目录</span><br>basedir=C:\Program Files\MySQL\mysql-5.7.39-winx64<br><span class="hljs-section"># mysql的数据目录</span><br>datadir=C:\Program Files\MySQL\mysql-5.7.39-winx64\data<br><span class="hljs-section"># 允许最大连接数</span><br>max<span class="hljs-emphasis">_connections=200</span><br><span class="hljs-emphasis"># 服务端使用的默认字符集</span><br><span class="hljs-emphasis">character-set-server=utf8</span><br><span class="hljs-emphasis"># 创建新表时的默认存储引擎</span><br><span class="hljs-emphasis">default-storage-engine=INNODB</span><br><span class="hljs-emphasis"># 跳过表验证</span><br><span class="hljs-emphasis">skip-grant-tables=1</span><br></code></pre></td></tr></table></figure>
+
+<p>在环境变量<code>Path</code>中加入<code>MySQL5.7</code>的<code>bin</code>路径，即<code>C:\Program Files\MySQL\mysql-5.7.39-winx64\bin</code></p>
+<img src="http://image.lxher.com/blog/2023-01-01/6.png" srcset="/img/loading.gif" lazyload width="400">
+
+<h2 id="安装MySQL5-7"><a href="#安装MySQL5-7" class="headerlink" title="安装MySQL5.7"></a>安装MySQL5.7</h2><p>打开<code>开始</code>菜单，以管理员身份运行<code>cmd</code>,依次执行以下命令</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">cd C:\Program Files\MySQL\mysql-5.7.39-winx64\bin<br><br>mysqld --initialize<br><br>mysqld --install<br></code></pre></td></tr></table></figure>
+
+<p>执行命令<code>net start mysql</code>，启动<code>MySQL5.7</code>服务</p>
+<img src="http://image.lxher.com/blog/2023-01-01/7.png" srcset="/img/loading.gif" lazyload width="500">
+
+<h2 id="登录MySQL5-7"><a href="#登录MySQL5-7" class="headerlink" title="登录MySQL5.7"></a>登录MySQL5.7</h2><p>执行命令<code>mysql -u root -p</code>，不用输入密码，直接回车，即可登录</p>
+<img src="http://image.lxher.com/blog/2023-01-01/8.png" srcset="/img/loading.gif" lazyload width="600">
+
+<p>依次执行以下sql语句，将<code>root</code>账号的密码修改为<code>123456</code>，这里的密码不固定，为自己常用的密码即可</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">use mysql;<br><br>update <span class="hljs-code">`user`</span> set <span class="hljs-code">`authentication_string`</span> = password(&#x27;123456&#x27;),password<span class="hljs-emphasis">_last_</span>changed=now() where <span class="hljs-code">`user`</span> = &#x27;root&#x27;;<br><br>exit;<br></code></pre></td></tr></table></figure>
+
+<p>接着修改<code>my.ini</code>文件，删除最后一行<code>skip-grant-tables=1</code>内容，取消表验证的跳过</p>
+<p>最后依次执行命令<code>net stop mysql</code>，<code>net start mysql</code>，重启<code>MySQL5.7</code>服务</p>
+<img src="http://image.lxher.com/blog/2023-01-01/9.png" srcset="/img/loading.gif" lazyload width="600">
+
+<p>这个时候<code>MySQL5.7</code>就安装好了，我们可以使用刚才设置的<code>root</code>账号密码去登录了</p>
 
                 
               </div>
@@ -305,7 +341,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/First/" class="category-chain-item">First</a>
+  <a href="/categories/2023/" class="category-chain-item">2023</a>
   
   
 
@@ -320,7 +356,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Hexo/">#Hexo</a>
+        <a href="/tags/MySQL/">#MySQL</a>
       
     </div>
   
@@ -333,12 +369,6 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/2023/04/21/test/" title="test">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">test</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
