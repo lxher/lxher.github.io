@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/5.png">
 <meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/6.png">
 <meta property="article:published_time" content="2023-12-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-05T14:13:45.981Z">
+<meta property="article:modified_time" content="2023-12-05T14:36:49.601Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -283,47 +283,47 @@
                 
                 <h1 id="Linux-安装-MongoDB"><a href="#Linux-安装-MongoDB" class="headerlink" title="Linux 安装 MongoDB"></a>Linux 安装 MongoDB</h1><p>今天做一个新项目，数据库选用了MongoDB，记录一下安装过程</p>
 <h2 id="安装-MongoDB"><a href="#安装-MongoDB" class="headerlink" title="安装 MongoDB"></a>安装 MongoDB</h2><h3 id="配置-MongoDB-源"><a href="#配置-MongoDB-源" class="headerlink" title="配置 MongoDB 源"></a>配置 MongoDB 源</h3><p>执行命令，编辑<code>mongodb-org-7.0.repo</code>文件</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">vi /etc/yum.repos.d/mongodb-org-7.0.repo<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/yum.repos.d/mongodb-org-7.0.repo<br></code></pre></td></tr></table></figure>
 
 <p>文件内容为</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[mongodb-org-7.0]<br>name=MongoDB Repository<br>baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/7.0/x86<span class="hljs-emphasis">_64/</span><br><span class="hljs-emphasis">gpgcheck=1</span><br><span class="hljs-emphasis">enabled=1</span><br><span class="hljs-emphasis">gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">[mongodb-org-7.0]<br>name=MongoDB Repository<br>baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/7.0/x86_64/<br>gpgcheck=1<br>enabled=1<br>gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc<br></code></pre></td></tr></table></figure>
 
 <p>这里下载的<code>MongoDB</code>版本为<code>7.0</code>，如果需要下载其他版本，可以查看官网提供的<a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-red-hat/">参考文档</a>，替换配置内容</p>
 <h3 id="下载-MongoDB"><a href="#下载-MongoDB" class="headerlink" title="下载 MongoDB"></a>下载 MongoDB</h3><p>执行命令，下载<code>MongoDB</code></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">yum install -y mongodb-org<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y mongodb-org<br></code></pre></td></tr></table></figure>
 
 <img src="https://image.lxher.com/blog/2023-12-04/1.png" srcset="/img/loading.gif" lazyload width="700">
 
 <h2 id="启动-MongoDB"><a href="#启动-MongoDB" class="headerlink" title="启动 MongoDB"></a>启动 MongoDB</h2><p>执行命令，发现启动失败了</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">sudo systemctl start mongod<br>sudo systemctl status mongod<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl start mongod<br>sudo systemctl status mongod<br></code></pre></td></tr></table></figure>
 
 <img src="https://image.lxher.com/blog/2023-12-04/2.png" srcset="/img/loading.gif" lazyload width="700">
 
 <p>在网上查询资料后，发现是文件权限不够，执行命令，查询用户组和用户</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">cat /etc/group<br>cat /etc/passwd<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat /etc/group<br>cat /etc/passwd<br></code></pre></td></tr></table></figure>
 
 <p>发现新增了<code>mongod</code>用户和<code>mongod</code>用户组</p>
 <p>执行命令，给所需文件授权，其中<code>&lt;group&gt;</code>和<code>&lt;user&gt;</code>为新增的用户组和用户</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">sudo chown -R <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span>&gt;</span></span>:<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">user</span>&gt;</span></span> /var/lib/mongo<br>sudo chown <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span>&gt;</span></span>:<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">user</span>&gt;</span></span> /tmp/mongodb-27017.sock<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo chown -R &lt;group&gt;:&lt;user&gt; /var/lib/mongo<br>sudo chown &lt;group&gt;:&lt;user&gt; /tmp/mongodb-27017.sock<br></code></pre></td></tr></table></figure>
 
 <p>再次启动<code>MongoDB</code>，发现启动成功了</p>
 <img src="https://image.lxher.com/blog/2023-12-04/3.png" srcset="/img/loading.gif" lazyload width="700">
 
 <h2 id="创建-MongoDB-管理员"><a href="#创建-MongoDB-管理员" class="headerlink" title="创建 MongoDB 管理员"></a>创建 MongoDB 管理员</h2><h3 id="创建-admin-管理员"><a href="#创建-admin-管理员" class="headerlink" title="创建 admin 管理员"></a>创建 admin 管理员</h3><p>执行命令，打开<code>MongoDB Shell</code></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">mongosh<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mongosh<br></code></pre></td></tr></table></figure>
 
 <img src="https://image.lxher.com/blog/2023-12-04/4.png" srcset="/img/loading.gif" lazyload width="600">
 
 <p>输入语句连接<code>admin</code>数据库</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">use admin<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">use admin<br></code></pre></td></tr></table></figure>
 
 <p>再输入语句创建<code>admin</code>管理员</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">db.createUser(<br><span class="hljs-code">    &#123;</span><br><span class="hljs-code">        user: &quot;admin&quot;,</span><br><span class="hljs-code">        pwd: &quot;123456&quot;,</span><br><span class="hljs-code">        roles: [ &#123; role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125; ]</span><br><span class="hljs-code">    &#125;</span><br><span class="hljs-code">)</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">db.createUser(<br>    &#123;<br>        user: &quot;admin&quot;,<br>        pwd: &quot;123456&quot;,<br>        roles: [ &#123; role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125; ]<br>    &#125;<br>)<br></code></pre></td></tr></table></figure>
 
 <img src="https://image.lxher.com/blog/2023-12-04/5.png" srcset="/img/loading.gif" lazyload width="500">
 
 <h3 id="连接-admin-数据库"><a href="#连接-admin-数据库" class="headerlink" title="连接 admin 数据库"></a>连接 admin 数据库</h3><p>退出后，执行命令并输入密码连接<code>admin</code>数据库，连接成功则表示管理员创建成功了</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">mongo -u admin -p --authenticationDatabase admin<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mongo -u admin -p --authenticationDatabase admin<br></code></pre></td></tr></table></figure>
 
 <img src="https://image.lxher.com/blog/2023-12-04/6.png" srcset="/img/loading.gif" lazyload width="600">
 

@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://image.lxher.com/blog/2023-07-29/9.png">
 <meta property="og:image" content="https://image.lxher.com/blog/2023-07-29/10.png">
 <meta property="article:published_time" content="2023-07-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-04T14:12:03.663Z">
+<meta property="article:modified_time" content="2023-12-05T14:36:17.152Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -286,43 +286,43 @@
               <div class="markdown-body">
                 
                 <h1 id="Linux-安装-Nginx"><a href="#Linux-安装-Nginx" class="headerlink" title="Linux 安装 Nginx"></a>Linux 安装 Nginx</h1><p>今天新买了一台阿里云服务器，记录一下安装Nginx的过程</p>
-<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><h3 id="安装-gcc"><a href="#安装-gcc" class="headerlink" title="安装 gcc"></a>安装 gcc</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">yum install gcc-c++<br></code></pre></td></tr></table></figure>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><h3 id="安装-gcc"><a href="#安装-gcc" class="headerlink" title="安装 gcc"></a>安装 gcc</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install gcc-c++<br></code></pre></td></tr></table></figure>
 
 <p>Nginx依赖于gcc的编译环境</p>
 <img src="https://image.lxher.com/blog/2023-07-29/1.png" srcset="/img/loading.gif" lazyload width="700">
 
-<h3 id="安装-pcre"><a href="#安装-pcre" class="headerlink" title="安装 pcre"></a>安装 pcre</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">yum install -y pcre pcre-devel<br></code></pre></td></tr></table></figure>
+<h3 id="安装-pcre"><a href="#安装-pcre" class="headerlink" title="安装 pcre"></a>安装 pcre</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y pcre pcre-devel<br></code></pre></td></tr></table></figure>
 
 <p>Nginx的Rewrite模块和Http模块需要使用pcre来解析正则表达式语法</p>
 <img src="https://image.lxher.com/blog/2023-07-29/2.png" srcset="/img/loading.gif" lazyload width="700">
 
-<h3 id="安装-zlib"><a href="#安装-zlib" class="headerlink" title="安装 zlib"></a>安装 zlib</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">yum install -y zlib zlib-devel<br></code></pre></td></tr></table></figure>
+<h3 id="安装-zlib"><a href="#安装-zlib" class="headerlink" title="安装 zlib"></a>安装 zlib</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y zlib zlib-devel<br></code></pre></td></tr></table></figure>
 
 <p>Nginx的多个模块都需要使用zlib库中的gzip压缩算法</p>
 <img src="https://image.lxher.com/blog/2023-07-29/3.png" srcset="/img/loading.gif" lazyload width="700">
 
-<h3 id="安装-openssl"><a href="#安装-openssl" class="headerlink" title="安装 openssl"></a>安装 openssl</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">yum install -y openssl openssl-devel<br></code></pre></td></tr></table></figure>
+<h3 id="安装-openssl"><a href="#安装-openssl" class="headerlink" title="安装 openssl"></a>安装 openssl</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install -y openssl openssl-devel<br></code></pre></td></tr></table></figure>
 
 <p>Nginx的https模块依赖于openssl库</p>
 <img src="https://image.lxher.com/blog/2023-07-29/4.png" srcset="/img/loading.gif" lazyload width="700">
 
 <h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><h3 id="下载-Nginx"><a href="#下载-Nginx" class="headerlink" title="下载 Nginx"></a>下载 Nginx</h3><p>选择Nginx的安装目录，如<code>/usr/local</code>，在该目录下新建<code>nginx</code>文件夹</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">cd /usr/local<br>mkdir nginx<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /usr/local<br>mkdir nginx<br></code></pre></td></tr></table></figure>
 
 <p>前往官网下载Nginx，下载地址为<code>https://nginx.org/en/download.html</code></p>
 <p>如下图，选择最新的稳定版本，这里为<code>1.24.0</code></p>
 <img src="https://image.lxher.com/blog/2023-07-29/5.png" srcset="/img/loading.gif" lazyload width="700">
 
 <p>下载后将安装包上传至<code>/usr/local/nginx</code>目录，或者可以直接在<code>/usr/local/nginx</code>目录下执行下载命令</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">curl -O https://nginx.org/download/nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -O https://nginx.org/download/nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
 
 <p>最后还需要执行解压命令，将安装包解压</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">tar -zxvf nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -zxvf nginx-1.24.0.tar.gz<br></code></pre></td></tr></table></figure>
 
 <img src="https://image.lxher.com/blog/2023-07-29/6.png" srcset="/img/loading.gif" lazyload width="700">
 
 <h3 id="编译-Nginx"><a href="#编译-Nginx" class="headerlink" title="编译 Nginx"></a>编译 Nginx</h3><p>进入解压后的文件夹<code>nginx-1.24.0</code>，依次执行以下命令，即可编译安装Nginx</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">./configure --prefix=/usr/local/nginx --with-http<span class="hljs-emphasis">_stub_</span>status<span class="hljs-emphasis">_module --with-http_</span>ssl<span class="hljs-emphasis">_module</span><br><span class="hljs-emphasis">make</span><br><span class="hljs-emphasis">make install</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module<br>make<br>make install<br></code></pre></td></tr></table></figure>
 
 <p>注意：<code>./configure</code>命令后面加的几个参数不要漏掉，后面nginx解析https链接需要用到</p>
 <img src="https://image.lxher.com/blog/2023-07-29/7.png" srcset="/img/loading.gif" lazyload width="700">

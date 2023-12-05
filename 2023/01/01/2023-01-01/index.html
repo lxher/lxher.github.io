@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://image.lxher.com/blog/2023-01-01/8.png">
 <meta property="og:image" content="https://image.lxher.com/blog/2023-01-01/9.png">
 <meta property="article:published_time" content="2022-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-04T14:12:11.879Z">
+<meta property="article:modified_time" content="2023-12-05T14:35:45.512Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary_large_image">
@@ -301,13 +301,13 @@
 <img src="https://image.lxher.com/blog/2023-01-01/5.png" srcset="/img/loading.gif" lazyload width="500">
 
 <p>修改<code>my.ini</code>文件为以下内容，注意<code>basedir</code>和<code>datadir</code>为自己下载的<code>MySQL5.7</code>的安装目录和数据目录</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[mysql]<br><span class="hljs-section"># mysql客户端默认字符集</span><br>default-character-set=utf8 <br>[mysqld]<br><span class="hljs-section"># 端口</span><br>port=3306 <br><span class="hljs-section"># mysql的安装目录</span><br>basedir=C:\Program Files\MySQL\mysql-5.7.39-winx64<br><span class="hljs-section"># mysql的数据目录</span><br>datadir=C:\Program Files\MySQL\mysql-5.7.39-winx64\data<br><span class="hljs-section"># 允许最大连接数</span><br>max<span class="hljs-emphasis">_connections=200</span><br><span class="hljs-emphasis"># 服务端使用的默认字符集</span><br><span class="hljs-emphasis">character-set-server=utf8</span><br><span class="hljs-emphasis"># 创建新表时的默认存储引擎</span><br><span class="hljs-emphasis">default-storage-engine=INNODB</span><br><span class="hljs-emphasis"># 跳过表验证</span><br><span class="hljs-emphasis">skip-grant-tables=1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs text">[mysql]<br># mysql客户端默认字符集<br>default-character-set=utf8 <br>[mysqld]<br># 端口<br>port=3306 <br># mysql的安装目录<br>basedir=C:\Program Files\MySQL\mysql-5.7.39-winx64<br># mysql的数据目录<br>datadir=C:\Program Files\MySQL\mysql-5.7.39-winx64\data<br># 允许最大连接数<br>max_connections=200<br># 服务端使用的默认字符集<br>character-set-server=utf8<br># 创建新表时的默认存储引擎<br>default-storage-engine=INNODB<br># 跳过表验证<br>skip-grant-tables=1<br></code></pre></td></tr></table></figure>
 
 <p>在环境变量<code>Path</code>中加入<code>MySQL5.7</code>的<code>bin</code>路径，即<code>C:\Program Files\MySQL\mysql-5.7.39-winx64\bin</code></p>
 <img src="https://image.lxher.com/blog/2023-01-01/6.png" srcset="/img/loading.gif" lazyload width="400">
 
 <h2 id="安装MySQL5-7"><a href="#安装MySQL5-7" class="headerlink" title="安装MySQL5.7"></a>安装MySQL5.7</h2><p>打开<code>开始</code>菜单，以管理员身份运行<code>cmd</code>,依次执行以下命令</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">cd C:\Program Files\MySQL\mysql-5.7.39-winx64\bin<br><br>mysqld --initialize<br><br>mysqld --install<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd C:\Program Files\MySQL\mysql-5.7.39-winx64\bin<br><br>mysqld --initialize<br><br>mysqld --install<br></code></pre></td></tr></table></figure>
 
 <p>执行命令<code>net start mysql</code>，启动<code>MySQL5.7</code>服务</p>
 <img src="https://image.lxher.com/blog/2023-01-01/7.png" srcset="/img/loading.gif" lazyload width="500">
@@ -316,7 +316,7 @@
 <img src="https://image.lxher.com/blog/2023-01-01/8.png" srcset="/img/loading.gif" lazyload width="600">
 
 <p>依次执行以下sql语句，将<code>root</code>账号的密码修改为<code>123456</code>，这里的密码不固定，为自己常用的密码即可</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">use mysql;<br><br>update <span class="hljs-code">`user`</span> set <span class="hljs-code">`authentication_string`</span> = password(&#x27;123456&#x27;),password<span class="hljs-emphasis">_last_</span>changed=now() where <span class="hljs-code">`user`</span> = &#x27;root&#x27;;<br><br>exit;<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">use mysql;<br><br>update `user` set `authentication_string` = password(&#x27;123456&#x27;),password_last_changed=now() where `user` = &#x27;root&#x27;;<br><br>exit;<br></code></pre></td></tr></table></figure>
 
 <p>接着修改<code>my.ini</code>文件，删除最后一行<code>skip-grant-tables=1</code>内容，取消表验证的跳过</p>
 <p>最后依次执行命令<code>net stop mysql</code>，<code>net start mysql</code>，重启<code>MySQL5.7</code>服务</p>
