@@ -16,32 +16,29 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="MySQL8.0降级到MySQL5.7">
+    <meta name="description" content="Linux安装MongoDB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL8.0降级到MySQL5.7">
-<meta property="og:url" content="http://example.com/2023/01/21/2023-01-21/index.html">
+<meta property="og:title" content="Linux安装MongoDB">
+<meta property="og:url" content="http://example.com/2023/12/04/2023-12-04/index.html">
 <meta property="og:site_name" content="lxh blog">
-<meta property="og:description" content="MySQL8.0降级到MySQL5.7">
+<meta property="og:description" content="Linux安装MongoDB">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/1.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/2.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/3.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/4.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/5.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/6.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/7.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/8.png">
-<meta property="og:image" content="https://image.lxher.com/blog/2023-01-21/9.png">
-<meta property="article:published_time" content="2023-01-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-29T10:01:21.193Z">
+<meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/1.png">
+<meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/2.png">
+<meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/3.png">
+<meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/4.png">
+<meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/5.png">
+<meta property="og:image" content="https://image.lxher.com/blog/2023-12-04/6.png">
+<meta property="article:published_time" content="2023-12-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-05T14:13:45.981Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://image.lxher.com/blog/2023-01-21/1.png">
+<meta name="twitter:image" content="https://image.lxher.com/blog/2023-12-04/1.png">
   
   
   
-  <title>MySQL8.0降级到MySQL5.7 - lxh blog</title>
+  <title>Linux安装MongoDB - lxh blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="MySQL8.0降级到MySQL5.7"></span>
+            <span id="subtitle" data-typed-text="Linux安装MongoDB"></span>
           
         </div>
 
@@ -218,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-21 00:00" pubdate>
-          2023年1月21日 凌晨
+        <time datetime="2023-12-04 00:00" pubdate>
+          2023年12月4日 凌晨
         </time>
       </span>
     
@@ -230,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.1k 字
         
       </span>
     
@@ -241,7 +238,7 @@
         
         
         
-          12 分钟
+          10 分钟
         
       </span>
     
@@ -279,50 +276,56 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MySQL8.0降级到MySQL5.7</h1>
+            <h1 style="display: none">Linux安装MongoDB</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="MySQL8-0降级到MySQL5-7"><a href="#MySQL8-0降级到MySQL5-7" class="headerlink" title="MySQL8.0降级到MySQL5.7"></a>MySQL8.0降级到MySQL5.7</h1><p>因为项目需要，要把MySQL8.0降级到MySQL5.7，在这里记录一下</p>
-<h2 id="停止MySQL8-0"><a href="#停止MySQL8-0" class="headerlink" title="停止MySQL8.0"></a>停止MySQL8.0</h2><p>打开任务管理器，找到<code>MySQL80</code>服务，右键停止服务</p>
-<img src="https://image.lxher.com/blog/2023-01-21/1.png" srcset="/img/loading.gif" lazyload width="500">
+                <h1 id="Linux-安装-MongoDB"><a href="#Linux-安装-MongoDB" class="headerlink" title="Linux 安装 MongoDB"></a>Linux 安装 MongoDB</h1><p>今天做一个新项目，数据库选用了MongoDB，记录一下安装过程</p>
+<h2 id="安装-MongoDB"><a href="#安装-MongoDB" class="headerlink" title="安装 MongoDB"></a>安装 MongoDB</h2><h3 id="配置-MongoDB-源"><a href="#配置-MongoDB-源" class="headerlink" title="配置 MongoDB 源"></a>配置 MongoDB 源</h3><p>执行命令，编辑<code>mongodb-org-7.0.repo</code>文件</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">vi /etc/yum.repos.d/mongodb-org-7.0.repo<br></code></pre></td></tr></table></figure>
 
-<p>打开<code>开始</code>菜单，以管理员身份运行<code>cmd</code>，输入命令<code>sc delete MySQL80</code>，删除<code>MySQL80</code>服务</p>
-<img src="https://image.lxher.com/blog/2023-01-21/2.png" srcset="/img/loading.gif" lazyload width="300">
+<p>文件内容为</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[mongodb-org-7.0]<br>name=MongoDB Repository<br>baseurl=https://repo.mongodb.org/yum/redhat/7/mongodb-org/7.0/x86<span class="hljs-emphasis">_64/</span><br><span class="hljs-emphasis">gpgcheck=1</span><br><span class="hljs-emphasis">enabled=1</span><br><span class="hljs-emphasis">gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="下载MySQL5-7"><a href="#下载MySQL5-7" class="headerlink" title="下载MySQL5.7"></a>下载MySQL5.7</h2><p>下载地址为<code>https://downloads.mysql.com/archives/community/</code>，下载版本为<code>5.7.39</code>，选择第二个压缩包下载</p>
-<img src="https://image.lxher.com/blog/2023-01-21/3.png" srcset="/img/loading.gif" lazyload width="800">
+<p>这里下载的<code>MongoDB</code>版本为<code>7.0</code>，如果需要下载其他版本，可以查看官网提供的<a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-red-hat/">参考文档</a>，替换配置内容</p>
+<h3 id="下载-MongoDB"><a href="#下载-MongoDB" class="headerlink" title="下载 MongoDB"></a>下载 MongoDB</h3><p>执行命令，下载<code>MongoDB</code></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">yum install -y mongodb-org<br></code></pre></td></tr></table></figure>
 
-<p>将<code>mysql-5.7.39-winx64.zip</code>压缩包解压到<code>C:\Program Files\MySQL</code>目录下，这个目录通常是<code>MySQL8.0</code>的安装目录</p>
-<img src="https://image.lxher.com/blog/2023-01-21/4.png" srcset="/img/loading.gif" lazyload width="500">
+<img src="https://image.lxher.com/blog/2023-12-04/1.png" srcset="/img/loading.gif" lazyload width="700">
 
-<h2 id="配置MySQL5-7"><a href="#配置MySQL5-7" class="headerlink" title="配置MySQL5.7"></a>配置MySQL5.7</h2><p>在<code>mysql-5.7.39-winx64</code>目录下创建<code>data</code>文件夹和<code>my.ini</code>文件</p>
-<img src="https://image.lxher.com/blog/2023-01-21/5.png" srcset="/img/loading.gif" lazyload width="500">
+<h2 id="启动-MongoDB"><a href="#启动-MongoDB" class="headerlink" title="启动 MongoDB"></a>启动 MongoDB</h2><p>执行命令，发现启动失败了</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">sudo systemctl start mongod<br>sudo systemctl status mongod<br></code></pre></td></tr></table></figure>
 
-<p>修改<code>my.ini</code>文件为以下内容，注意<code>basedir</code>和<code>datadir</code>为自己下载的<code>MySQL5.7</code>的安装目录和数据目录</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[mysql]<br><span class="hljs-section"># mysql客户端默认字符集</span><br>default-character-set=utf8 <br>[mysqld]<br><span class="hljs-section"># 端口</span><br>port=3306 <br><span class="hljs-section"># mysql的安装目录</span><br>basedir=C:\Program Files\MySQL\mysql-5.7.39-winx64<br><span class="hljs-section"># mysql的数据目录</span><br>datadir=C:\Program Files\MySQL\mysql-5.7.39-winx64\data<br><span class="hljs-section"># 允许最大连接数</span><br>max<span class="hljs-emphasis">_connections=200</span><br><span class="hljs-emphasis"># 服务端使用的默认字符集</span><br><span class="hljs-emphasis">character-set-server=utf8</span><br><span class="hljs-emphasis"># 创建新表时的默认存储引擎</span><br><span class="hljs-emphasis">default-storage-engine=INNODB</span><br><span class="hljs-emphasis"># 跳过表验证</span><br><span class="hljs-emphasis">skip-grant-tables=1</span><br></code></pre></td></tr></table></figure>
+<img src="https://image.lxher.com/blog/2023-12-04/2.png" srcset="/img/loading.gif" lazyload width="700">
 
-<p>在环境变量<code>Path</code>中加入<code>MySQL5.7</code>的<code>bin</code>路径，即<code>C:\Program Files\MySQL\mysql-5.7.39-winx64\bin</code></p>
-<img src="https://image.lxher.com/blog/2023-01-21/6.png" srcset="/img/loading.gif" lazyload width="400">
+<p>在网上查询资料后，发现是文件权限不够，执行命令，查询用户组和用户</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">cat /etc/group<br>cat /etc/passwd<br></code></pre></td></tr></table></figure>
 
-<h2 id="安装MySQL5-7"><a href="#安装MySQL5-7" class="headerlink" title="安装MySQL5.7"></a>安装MySQL5.7</h2><p>打开<code>开始</code>菜单，以管理员身份运行<code>cmd</code>,依次执行以下命令</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">cd C:\Program Files\MySQL\mysql-5.7.39-winx64\bin<br><br>mysqld --initialize<br><br>mysqld --install<br></code></pre></td></tr></table></figure>
+<p>发现新增了<code>mongod</code>用户和<code>mongod</code>用户组</p>
+<p>执行命令，给所需文件授权，其中<code>&lt;group&gt;</code>和<code>&lt;user&gt;</code>为新增的用户组和用户</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">sudo chown -R <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span>&gt;</span></span>:<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">user</span>&gt;</span></span> /var/lib/mongo<br>sudo chown <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">group</span>&gt;</span></span>:<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">user</span>&gt;</span></span> /tmp/mongodb-27017.sock<br></code></pre></td></tr></table></figure>
 
-<p>执行命令<code>net start mysql</code>，启动<code>MySQL5.7</code>服务</p>
-<img src="https://image.lxher.com/blog/2023-01-21/7.png" srcset="/img/loading.gif" lazyload width="500">
+<p>再次启动<code>MongoDB</code>，发现启动成功了</p>
+<img src="https://image.lxher.com/blog/2023-12-04/3.png" srcset="/img/loading.gif" lazyload width="700">
 
-<h2 id="登录MySQL5-7"><a href="#登录MySQL5-7" class="headerlink" title="登录MySQL5.7"></a>登录MySQL5.7</h2><p>执行命令<code>mysql -u root -p</code>，不用输入密码，直接回车，即可登录</p>
-<img src="https://image.lxher.com/blog/2023-01-21/8.png" srcset="/img/loading.gif" lazyload width="600">
+<h2 id="创建-MongoDB-管理员"><a href="#创建-MongoDB-管理员" class="headerlink" title="创建 MongoDB 管理员"></a>创建 MongoDB 管理员</h2><h3 id="创建-admin-管理员"><a href="#创建-admin-管理员" class="headerlink" title="创建 admin 管理员"></a>创建 admin 管理员</h3><p>执行命令，打开<code>MongoDB Shell</code></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">mongosh<br></code></pre></td></tr></table></figure>
 
-<p>依次执行以下sql语句，将<code>root</code>账号的密码修改为<code>123456</code>，这里的密码不固定，为自己常用的密码即可</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">use mysql;<br><br>update <span class="hljs-code">`user`</span> set <span class="hljs-code">`authentication_string`</span> = password(&#x27;123456&#x27;),password<span class="hljs-emphasis">_last_</span>changed=now() where <span class="hljs-code">`user`</span> = &#x27;root&#x27;;<br><br>exit;<br></code></pre></td></tr></table></figure>
+<img src="https://image.lxher.com/blog/2023-12-04/4.png" srcset="/img/loading.gif" lazyload width="600">
 
-<p>接着修改<code>my.ini</code>文件，删除最后一行<code>skip-grant-tables=1</code>内容，取消表验证的跳过</p>
-<p>最后依次执行命令<code>net stop mysql</code>，<code>net start mysql</code>，重启<code>MySQL5.7</code>服务</p>
-<img src="https://image.lxher.com/blog/2023-01-21/9.png" srcset="/img/loading.gif" lazyload width="600">
+<p>输入语句连接<code>admin</code>数据库</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">use admin<br></code></pre></td></tr></table></figure>
 
-<p>这个时候<code>MySQL5.7</code>就安装好了，我们可以使用刚才设置的<code>root</code>账号密码去登录了</p>
+<p>再输入语句创建<code>admin</code>管理员</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">db.createUser(<br><span class="hljs-code">    &#123;</span><br><span class="hljs-code">        user: &quot;admin&quot;,</span><br><span class="hljs-code">        pwd: &quot;123456&quot;,</span><br><span class="hljs-code">        roles: [ &#123; role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; &#125; ]</span><br><span class="hljs-code">    &#125;</span><br><span class="hljs-code">)</span><br></code></pre></td></tr></table></figure>
+
+<img src="https://image.lxher.com/blog/2023-12-04/5.png" srcset="/img/loading.gif" lazyload width="500">
+
+<h3 id="连接-admin-数据库"><a href="#连接-admin-数据库" class="headerlink" title="连接 admin 数据库"></a>连接 admin 数据库</h3><p>退出后，执行命令并输入密码连接<code>admin</code>数据库，连接成功则表示管理员创建成功了</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">mongo -u admin -p --authenticationDatabase admin<br></code></pre></td></tr></table></figure>
+
+<img src="https://image.lxher.com/blog/2023-12-04/6.png" srcset="/img/loading.gif" lazyload width="600">
 
                 
               </div>
@@ -356,7 +359,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/MySQL/">#MySQL</a>
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -370,15 +373,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/29/2023-07-29/" title="Linux安装Nginx">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux安装Nginx</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/07/29/2023-07-29/" title="Linux安装Nginx">
+                        <span class="hidden-mobile">Linux安装Nginx</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
